@@ -1,0 +1,108 @@
+.hero {
+    background-color: #0052A5; /* A deep blue color, similar to eKosova's branding */
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.key-info .card {
+    background-color: #E9F1F9; /* Light blue for card background */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: #0052A5; /* Primary blue for text */
+}
+
+.key-info .card:hover {
+    transform: scale(1.05);
+    background-color: #CFE2F3; /* Slightly darker blue on hover */
+}
+
+.countdown #timer {
+    font-size: 2rem;
+    color: #0052A5; /* Blue color for countdown text */
+}
+
+footer a {
+    color: #0052A5; /* Link color to match eKosova blue */
+}
+
+footer a:hover {
+    color: #FFD700; /* Yellow on hover */
+}
+
+#faq .card-header {
+    background-color: #E9F1F9; /* Light blue for FAQ header */
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    color: #0052A5; /* Blue color for FAQ text */
+}
+
+#faq .card-header:hover {
+    background-color: #CFE2F3; /* Darker blue on hover */
+}
+
+#faq .btn-link {
+    color: #0052A5; /* Primary blue for button links */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#faq .btn-link:hover {
+    color: #FFD700; /* Yellow on hover */
+    text-decoration: none;
+}
+
+#faq .card-body {
+    background-color: #F8F9FA; /* Light gray for FAQ body */
+    border-top: 1px solid #CFE2F3; /* Subtle border with blue */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #333; /* Dark gray  */
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+}
+
+.collapse.show .rotate-icon {
+    transform: rotate(180deg);
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E9F1F9; /* Matching light blue */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #0052A5; /* Text in blue */
+}
+
+button {
+    background-color: #0052A5; /* Primary blue */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FFD700; /* Yellow on hover */
+    color: #0052A5;
+}
+
+.vote-button.disabled {
+    background-color: #dc3545; /* Bootstrap's red */
+    border-color: #dc3545;
+    cursor: not-allowed;
+    color: white;
+}
+.vote-button.disabled:hover {
+    background-color: #dc3545; /* Ensure hover state stays the same */
+    border-color: #dc3545;
+}

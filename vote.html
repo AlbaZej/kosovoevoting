@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote - Kosovo eVoting Platform</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function handleVoteSubmission(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Set the local storage to indicate that the user has voted
+            localStorage.setItem("hasVoted", "true");
+            
+            // Redirect to the success page
+            window.location.href = "voted.html";
+        }
+    </script>
+        <style>
+            .vote-button.disabled {
+                background-color: red;
+                cursor: not-allowed;
+                color: white;
+            }
+        </style>
+    
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3 shadow">
+        <div class="container text-center">
+            <h1 class="font-weight-bold">Kosovo eVoting</h1>
+        </div>
+    </header>
+
+    <!-- Voting Section -->
+    <section class="container my-5">
+        <h2 class="text-center font-weight-bold mb-4">Cast Your Vote</h2>
+        <form onsubmit="handleVoteSubmission(event)">
+            <!-- Municipality Selection -->
+            <div class="form-group">
+                <label for="municipality">Select Municipality:</label>
+                <select id="municipality" name="municipality" class="form-control" required>
+                    <option value="">-- Choose Municipality --</option>
+                    <option value="prishtina">Prishtina</option>
+                    <option value="mitrovica">Mitrovica</option>
+                    <option value="prizren">Prizren</option>
+                    <option value="gjilan">Gjilan</option>
+                    <option value="peja">Peja</option>
+                </select>
+            </div>
+
+            <!-- Party Selection -->
+            <div class="form-group">
+                <label for="party">Select Party:</label>
+                <select id="party" name="party" class="form-control" required>
+                    <option value="">-- Choose Party --</option>
+                    <option value="ldk">Democratic League of Kosovo (LDK)</option>
+                    <option value="vv">Vetëvendosje Movement</option>
+                    <option value="aak">Alliance for the Future of Kosovo (AAK)</option>
+                    <option value="pdk">Democratic Party of Kosovo (PDK)</option>
+                </select>
+            </div>
+
+            <!-- Candidate Selection -->
+            <div class="form-group">
+                <label for="candidate">Select Candidate:</label>
+                <select id="candidate" name="candidate" class="form-control" required>
+                    <option value="">-- Choose Candidate --</option>
+                    <option value="kurti">Albin Kurti (Vetëvendosje Movement)</option>
+                    <option value="abdixhiku">Lumir Abdixhiku (LDK)</option>
+                    <option value="krasniqi">Memli Krasniqi (PDK)</option>
+                </select>
+            </div>
+
+            <!-- Confirm Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success">Submit Vote</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="bg-primary text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Kosovo eVoting Platform</p>
+            <div>
+                <a href="#" class="text-warning">Privacy Policy</a> | 
+                <a href="#" class="text-warning">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

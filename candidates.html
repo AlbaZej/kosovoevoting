@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profiles - Kosovo eVoting Platform</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px; /* Apply radius to all corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            perspective: 1000px; /* Set perspective for 3D effect */
+        }
+
+        .card-body {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 15px; /* Ensure body has a consistent border-radius */
+            position: relative;
+            height: 300px; /* Set a fixed height for consistency */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for the card flip */
+        .card-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s; /* Set flip duration */
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg); /* Flip the card on hover */
+        }
+
+        /* Front side of the card */
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+
+        /* Front content of the card (Candidate's name) */
+        .card-front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        /* Back content of the card (Details about the candidate) */
+        .card-back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            transform: rotateY(180deg); /* Initially hide back by rotating */
+        }
+
+        .card-body img {
+            border-radius: 10px; /* Make sure image also has rounded corners */
+            margin-bottom: 1rem;
+            width: 100%;
+            transition: transform 0.3s, opacity 0.3s, filter 0.3s;
+        }
+
+        .card-body img:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+            filter: brightness(110%);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .slideshow-container {
+    position: relative;
+    width: 100%; /* Ensure container takes up full width */
+    max-width: 800px; /* Keeps the slideshow container within a specific width */
+    margin: 0 auto; /* Center the slideshow horizontally */
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%; /* Ensure each slide takes up the full width */
+    height: 400px; /* Fixed height for the slides */
+    object-fit: cover; /* Ensures images maintain aspect ratio */
+    object-position: center; /* Center the image within the slide */
+}
+
+.active {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3 shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">
+                <a href="index.html" class="text-light text-decoration-none font-weight-bold">Kosovo eVoting</a>
+            </h4>
+            <nav>
+                <a href="dashboard.html" class="text-white mx-2">Dashboard</a>
+                <button class="btn btn-warning btn-sm mx-2" onclick="window.location.href='logout.html'">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Explore Candidate Profiles</h2>
+
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="vjosa.jpg" alt="Albin Kurti">
+            </div>
+            <div class="slide">
+                <img src="albini.jpg" alt="Candidate 2">
+            </div>
+            <div class="slide">
+                <img src="bedtri.jpg" alt="Candidate 3">
+            </div>
+            <div class="slide">
+                <img src="ramush.jpg" alt="Candidate 4">
+            </div>
+
+            <!-- Navigation buttons -->
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+<Br>
+    <br>
+       <!-- Candidate Cards -->
+<div class="row">
+    <!-- Candidate 1 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Albin Kurti</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Experienced leader with a vision for change and growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 2 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Vjosa Osmani</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Committed to social justice and community empowerment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 3 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Ramush Haradinaj</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Dedicated to security and strengthening Kosovo's sovereignty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 4 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Behgjet Pacolli</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Focus on economic development and international diplomacy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 5 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Shpend Ahmeti</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Progressive and dedicated to social equality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 6 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Hekuran Murati</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Proponent of economic reforms and youth engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 7 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Glauk Konjufca</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Focused on national unity and democratic reforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 8 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Selmanaj</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Experienced in managing public administration and reform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 9 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Anton Quni</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Advocate for regional cooperation and economic growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 10 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Ferid Agani</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Focusing on healthcare and social services reform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 11 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Valon Syla</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Promoting sustainability and environmental policies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate 12 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-inner">
+                    <!-- Front of the Card -->
+                    <div class="card-front">
+                        <p>Rashit Qazimi</p>
+                    </div>
+                    <!-- Back of the Card -->
+                    <div class="card-back">
+                        <p>Advocating for youth empowerment and education reforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+    <!-- JavaScript -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function changeSlide(n) {
+            slides[slideIndex].classList.remove("active");
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            slides[slideIndex].classList.add("active");
+        }
+
+        // Automatic slideshow
+        setInterval(() => changeSlide(1), 3000);
+    </script>
+</body>
+</html>

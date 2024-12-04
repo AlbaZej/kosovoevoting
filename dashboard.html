@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Kosovo eVoting Platform</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom style for the disabled button */
+        #voteButton.disabled {
+            background-color: #dc3545 !important; /* Red */
+            border-color: #dc3545 !important; /* Red */
+            color: white !important; /* Text color */
+            cursor: not-allowed;
+        }
+
+        #voteButton:disabled {
+            background-color: #dc3545 !important; /* Red */
+            border-color: #dc3545 !important; /* Red */
+            color: white !important; /* Text color */
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3 shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">
+                <a href="index.html" class="text-light text-decoration-none font-weight-bold">Kosovo eVoting</a>
+            </h4>
+            <nav>
+                <a href="index.html#about" class="text-white mx-2">About Us</a>
+                <a href="index.html#faq" class="text-white mx-2">FAQ</a>
+                <button class="btn btn-warning btn-sm mx-2" onclick="window.location.href='logout.html'">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="container my-5">
+        <h2 class="text-center font-weight-bold mb-4">Welcome to the Kosovo eVoting Dashboard</h2>
+        <div class="row">
+            <!-- Parties -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Political Parties</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><img src="src\ldk.jpg" alt="LDK Logo" style="width: 20px; height: 20px;"> Democratic League of Kosovo (LDK)</li>
+                            <li><img src="src\vetvvendosje.png" alt="Vetëvendosje Logo" style="width: 20px; height: 20px;"> Vetëvendosje Movement</li>
+                            <li><img src="src\pdk.png" alt="PDK Logo" style="width: 20px; height: 20px;"> Democratic Party of Kosovo (PDK)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voting Dates -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Voting Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Start Date:</strong> December 1, 2024</p>
+                        <p><strong>End Date:</strong> December 5, 2024</p>
+                        <p>Please ensure you cast your vote during this period.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Candidates -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Candidates</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Albin Kurti (Vetëvendosje Movement)</li>
+                            <li>Lumir Abdixhiku (LDK)</li>
+                            <li>Memli Krasniqi (PDK)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Municipalities -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Municipalities</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Prishtina</li>
+                            <li>Mitrovica</li>
+                            <li>Prizren</li>
+                            <li>Gjilan</li>
+                            <li>Peja</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Features -->
+        <div class="row">
+            <!-- Candidate Profiles -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Candidate Profiles</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Explore detailed profiles of all candidates, including their achievements, goals, and political platforms.</p>
+                        <button class="btn btn-primary btn-sm" onclick="window.location.href='candidates.html'">View Profiles</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voting Status -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Your Voting Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Status:</strong> <span id="voteStatus">Not Yet Voted</span></p>
+                        <button id="voteButton" class="btn btn-success" onclick="window.location.href='vote.html'">Vote Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the user has already voted using localStorage
+            if (localStorage.getItem("hasVoted") === "true") {
+                const voteButton = document.getElementById("voteButton");
+                voteButton.classList.add("disabled"); // Add 'disabled' class
+                voteButton.textContent = "Voted"; // Update the button text
+                voteButton.disabled = true; // Disable the button
+                document.getElementById("voteStatus").textContent = "Voted"; // Update status text
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Kosovo eVoting Platform</p>
+            <div>
+                <a href="#" class="text-warning">Privacy Policy</a> | 
+                <a href="#" class="text-warning">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

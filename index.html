@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosovo eVoting Platform</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo mb-0">
+                <h4 class="mb-0">
+                    <a href="index.html" class="text-light text-decoration-none font-weight-bold">Kosovo eVoting</a>
+                </h4>
+            </div>
+            <nav>
+                <a href="#about" class="text-white mx-2">About Us</a>
+                <a href="#how-it-works" class="text-white mx-2">How It Works</a>
+                <a href="#faq" class="text-white mx-2">FAQ</a>
+                <a href="contact.html" class="text-white mx-2">Contact</a>
+                <button class="btn btn-warning btn-sm ml-2" onclick="navigateToLogin()">Login</button>
+                <button class="btn btn-warning btn-sm ml-2" onclick="navigateToRegister()">Register</button>
+            </nav>           
+        </div>
+    </header>
+
+    <section class="hero text-center text-white d-flex align-items-center justify-content-center" style="background-image: url('kosovo-background.jpg'); height: 70vh; background-size: cover;">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">Vote Securely, Easily, and Transparently</h1>
+            <p class="lead">Your Vote Matters. Shape the Future of Kosovo from Anywhere.</p>
+            <button class="btn btn-warning btn-lg mt-3" onclick="navigateToRegister()">Get Started</button>
+        </div>
+    </section>
+
+    <section class="key-info py-5">
+        <div class="container text-center">
+            <h2 class="font-weight-bold">Why Choose eVoting?</h2>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5>Security</h5>
+                        <p>Top-tier encryption.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5>Accessibility</h5>
+                        <p>Vote from anywhere.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5>Transparency</h5>
+                        <p>Real-time updates.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5>Eco-Friendly</h5>
+                        <p>Less paper waste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="font-weight-bold" onclick="changeHeaderText(this)">How It Works</h2>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <p>1. Register with ID.</p>
+                </div>
+                <div class="col-md-3">
+                    <p>2. Log in on voting day.</p>
+                </div>
+                <div class="col-md-3">
+                    <p>3. Cast your vote securely.</p>
+                </div>
+                <div class="col-md-3">
+                    <p>4. Receive confirmation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function changeHeaderText(element) {
+        element.innerHTML = "Discover the Steps!";
+        }
+    </script>
+    
+
+    <section class="countdown text-center text-white bg-primary py-5">
+        <div class="container">
+            <h2 class="font-weight-bold">Next Election In:</h2>
+            <div id="timer" class="display-4 mt-3">00d : 00h : 00m : 00s</div>
+        </div>
+    </section>
+
+<section id="faq" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="font-weight-bold text-center mb-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            
+            <div class="card border-0 mb-3 shadow-sm rounded">
+                <div class="card-header p-0" id="faqHeading1">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark d-flex justify-content-between align-items-center w-100 py-3 px-4" 
+                                type="button" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                            <span><i class="fas fa-question-circle text-primary mr-2"></i> How can I register to vote online?</span>
+                            <i class="fas fa-chevron-down rotate-icon"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="faqCollapse1" class="collapse" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                    <div class="card-body text-secondary px-4">
+                        Register by providing your unique identification number and following the instructions provided on the platform.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 mb-3 shadow-sm rounded">
+                <div class="card-header p-0" id="faqHeading2">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark d-flex justify-content-between align-items-center w-100 py-3 px-4" 
+                                type="button" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                            <span><i class="fas fa-lock text-primary mr-2"></i> Is my vote secure?</span>
+                            <i class="fas fa-chevron-down rotate-icon"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                    <div class="card-body text-secondary px-4">
+                        Yes, we use advanced encryption to ensure your vote is both secure and confidential.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 mb-3 shadow-sm rounded">
+                <div class="card-header p-0" id="faqHeading3">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark d-flex justify-content-between align-items-center w-100 py-3 px-4" 
+                                type="button" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                            <span><i class="fas fa-sign-in-alt text-primary mr-2"></i> What if I have trouble logging in?</span>
+                            <i class="fas fa-chevron-down rotate-icon"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                    <div class="card-body text-secondary px-4">
+                        If you encounter issues logging in, please contact our support team for assistance.
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="bg-primary text-white py-3">
+    <div class="container text-center">
+        <p>&copy; 2024 Kosovo eVoting Platform</p>
+        <div>
+            <a href="#" class="text-warning">Privacy Policy</a> | 
+            <a href="#" class="text-warning">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
